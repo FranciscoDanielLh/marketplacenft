@@ -28,6 +28,7 @@ export default function MyListedItems({ marketplace, nft, account }) {
     const [soldItems, setSoldItems] = useState([]);
     const loadListedItems = async () => {
         const itemCount = await marketplace.itemCount();
+        
         let listedItems = [];
         let soldItems = [];
         for (let indx = 1; indx <= itemCount; indx++) {
