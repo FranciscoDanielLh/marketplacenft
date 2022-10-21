@@ -22,6 +22,7 @@ function App() {
 
   const [loading, setLoading] = useState(true);
   const [account, setAccount] = useState(null);
+  const [nft, setNFT] = useState({});
   const [marketplace, setMarketplace] = useState({});
 
   const web3Handler = async () => {

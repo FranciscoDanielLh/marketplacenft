@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\Franck\\Desktop\\cd\\hackathon\\marketplacenft\\src\\backend\\contracts\\Marketplace.sol": {
-      "lastModificationDate": 1666236663235,
-      "contentHash": "c47c849803ff3a95f89d5447a2d7abeb",
+      "lastModificationDate": 1666382451233,
+      "contentHash": "ed64b058d05cf2060eb73290cc6ced3d",
       "sourceName": "src/backend/contracts/Marketplace.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -441,8 +441,8 @@
       ]
     },
     "C:\\Users\\Franck\\Desktop\\cd\\hackathon\\marketplacenft\\src\\backend\\contracts\\NFT.sol": {
-      "lastModificationDate": 1666236663236,
-      "contentHash": "d7f37b30d0692213c42237d98710203b",
+      "lastModificationDate": 1666382450073,
+      "contentHash": "fbe8ed12aedb30bd40cbd7d189b9eb46",
       "sourceName": "src/backend/contracts/NFT.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -468,13 +468,49 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol"
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+        "@openzeppelin/contracts/utils/Counters.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
       ],
       "artifacts": [
         "NFT"
+      ]
+    },
+    "C:\\Users\\Franck\\Desktop\\cd\\hackathon\\marketplacenft\\node_modules\\@openzeppelin\\contracts\\utils\\Counters.sol": {
+      "lastModificationDate": 1666237548505,
+      "contentHash": "74654e3ae5d7f39555055dfe244dab7a",
+      "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Counters"
       ]
     }
   }

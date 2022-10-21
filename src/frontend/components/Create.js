@@ -42,7 +42,7 @@ const Create = ({ marketplace, nft }) => {
         }
     }
     const createNFT = async () => {
-        console.log("AAAA", image, price,name,description )
+     
         if (!image || !price || !name || !description) return
         try {
             const result = await client.add(JSON.stringify({ image, price, name, description }));
