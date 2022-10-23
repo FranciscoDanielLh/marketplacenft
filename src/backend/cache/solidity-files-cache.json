@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\Franck\\Desktop\\cd\\hackathon\\marketplacenft\\src\\backend\\contracts\\Marketplace.sol": {
-      "lastModificationDate": 1666382451233,
-      "contentHash": "ed64b058d05cf2060eb73290cc6ced3d",
+      "lastModificationDate": 1666536414448,
+      "contentHash": "9c7d8c04eb6689ed28366b6b58683538",
       "sourceName": "src/backend/contracts/Marketplace.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -441,8 +441,8 @@
       ]
     },
     "C:\\Users\\Franck\\Desktop\\cd\\hackathon\\marketplacenft\\src\\backend\\contracts\\NFT.sol": {
-      "lastModificationDate": 1666382450073,
-      "contentHash": "fbe8ed12aedb30bd40cbd7d189b9eb46",
+      "lastModificationDate": 1666536414448,
+      "contentHash": "af78cc9d07639d0304f627a1794a700f",
       "sourceName": "src/backend/contracts/NFT.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -468,8 +468,7 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
-        "@openzeppelin/contracts/utils/Counters.sol"
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol"
       ],
       "versionPragmas": [
         "^0.8.4"

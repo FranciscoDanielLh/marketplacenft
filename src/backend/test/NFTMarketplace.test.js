@@ -33,6 +33,7 @@ describe("NFTMarketplace", function (){
             const nftSymbol = "DAPP";
             expect(await nft.name()).to.equal(nftName);
             expect(await nft.symbol()).to.equal(nftSymbol);
+            expect(await nft.getSize()).to.equal(1);
         });
 
         it("Should track feeAccount and feePercent of the Marketplace", async function (){
@@ -44,7 +45,7 @@ describe("NFTMarketplace", function (){
     describe("Minting NFTs", function (){
 
         it("Should track each minted NFT", async function (){
-            await nft.connect(addr1).mint(URI);
+            await nft.connect(addr1).mint("Nombre", 3, "Desc",URI);
             expect(await nft.tokenCount()).to.equal(1);
             expect(await nft.balanceOf(addr1.address)).to.equal(1);
             expect(await nft.tokenURI(1)).to.equal(URI);

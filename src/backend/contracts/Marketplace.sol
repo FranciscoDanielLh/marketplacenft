@@ -17,14 +17,12 @@ contract Marketplace is ReentrancyGuard {
         uint price;
         address payable seller;
         bool sold;
+        address buyer;
+        uint useLimit;
     }
 
     mapping(uint => Item) public items;
-
-    event test(
-        uint finalSize
-    );
-
+    mapping(uint => uint) private times;
 
     event Offered(
         uint itemId,
@@ -36,10 +34,15 @@ contract Marketplace is ReentrancyGuard {
     event Bought(
         uint itemId,
         address indexed nft,
-        uint tokenId, 
+        uint tokenId,
         uint price,
         address indexed seller,
         address indexed buyer
+    );
+    event Benefict(
+        uint limit,
+        address owner,
+        bool status
     );
 
     constructor (uint _feePercent) {
@@ -47,8 +50,7 @@ contract Marketplace is ReentrancyGuard {
         feePercent = _feePercent;
     }
 
-    function makeItem(IERC721 _nft, uint _tokenId, uint _price) external nonReentrant {
-        
+    function makeItem(IERC721 _nft, uint _tokenId, uint _price, uint _limit) external nonReentrant {
         require(_price > 0, "Price must be greater than zero");
         itemCount++;
         _nft.transferFrom(msg.sender, address(this), _tokenId);
@@ -58,10 +60,12 @@ contract Marketplace is ReentrancyGuard {
             _tokenId,
             _price,
             payable(msg.sender),
-            false
+            false,
+            address(0x0),
+            _limit
         );
         emit Offered(
-            itemCount, 
+            itemCount,
             address(_nft),
             _tokenId,
             _price,
@@ -78,7 +82,9 @@ contract Marketplace is ReentrancyGuard {
         item.seller.transfer(item.price);
         feeAccount.transfer(_totalPrice - item.price);
         item.sold = true;
+        item.buyer= msg.sender;
         item.nft.transferFrom(address(this), msg.sender, item.tokenId);
+        times[_itemId] = block.timestamp;
         emit Bought(
             _itemId,
             address(item.nft),
@@ -91,6 +97,24 @@ contract Marketplace is ReentrancyGuard {
 
     function getTotalPrice(uint _itemId) view public returns(uint) {
         return ((items[_itemId].price*(100 + feePercent))/100);
+    }
+
+    
+    function validation(address owner, uint _itemId) public returns (bool) {
+        Item storage itemBenefict = items[_itemId];
+        bool status = false;
+        require(owner == itemBenefict.buyer, "Only the owner can see beneficts");
+        uint limit= itemBenefict.useLimit;
+        require (limit >0, "Beneficio ya cobrado");
+        limit = limit-1;
+        itemBenefict.useLimit = limit;
+        status = true;
+        emit Benefict(
+            limit,
+            msg.sender,
+            status
+        );
+        return status ;
     }
 
 }
